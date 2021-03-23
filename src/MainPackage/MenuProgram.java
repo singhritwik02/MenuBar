@@ -1,8 +1,6 @@
 package MainPackage;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +8,7 @@ import java.awt.event.ActionListener;
 class MenuProgram {
     JMenu menu, submenu;
     JMenuItem i1, i2, i3;
-    JLabel label;
+    JTextArea textArea;
     JFrame frame;
     ActionListener menuItemActionListener;
 
@@ -19,7 +17,7 @@ class MenuProgram {
         frame = new JFrame("Menu and MenuItem Example");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JMenuBar menuBar = new JMenuBar();
-        label = new JLabel("Welcome!!");
+        textArea = new JTextArea("Welcome!!");
         menu = new JMenu("Menu");
         submenu = new JMenu("Fonts");
         String[] fonts = getFonts();
@@ -56,8 +54,8 @@ class MenuProgram {
         menuBar.add(menu);
         frame.setJMenuBar(menuBar);
         frame.setSize(400, 400);
-        label.setBounds(50, 50, 300, 50);
-        frame.add(label);
+        textArea.setBounds(0, 0, 400, 400);
+        frame.add(textArea);
         frame.setLayout(null);
         frame.setVisible(true);
 
@@ -65,8 +63,8 @@ class MenuProgram {
 
     public void setNewFont(String fontName) {
         Font f = new Font(fontName, Font.PLAIN, 18);
-        label.setFont(f);
-        label.setText("Font Changed to :- "+fontName);
+        textArea.setFont(f);
+        textArea.setText("Font Changed to :- "+fontName);
     }
 
     public String[] getFonts() {
